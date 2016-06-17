@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WYBMN</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="res/super-panel.css" rel="stylesheet" />
+  <script src="res/super-panel.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+  body{
+   background: url('assets/images/beach.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+#rig {
+    max-width:900px;
+    margin:0 auto; /*center aligned*/
+    padding:0;
+    font-size:0; /* Remember to change it back to normal font size if have captions */
+    list-style:none;
+    background-color:#000;
+}
+#rig li {
+    display: inline-block;
+    *display:inline;/*for IE6 - IE7*/
+    width:25%;
+    vertical-align:middle;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+        
+/* The wrapper for each item */
+.rig-cell {
+    /*margin:12px;
+    box-shadow:0 0 6px rgba(0,0,0,0.3);*/
+    display:block;
+    position: relative;
+    overflow:hidden;
+}
+        
+/* If have the image layer */
+.rig-img {
+    display:block;
+    width: 100%;
+    height: auto;
+    border:none;
+    transform:scale(1);
+    transition:all 1s;
+}
+
+#rig li:hover .rig-img {
+    transform:scale(1.05);
+}
+        
+/* If have the overlay layer */
+.rig-overlay {
+    position: absolute;
+    display:block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: #3DC0F1 url(img/link.png) no-repeat center 20%;
+    background-size:50px 50px;
+    opacity:0;
+    filter:alpha(opacity=0);/*For IE6 - IE8*/
+    transition:all 0.6s;
+}
+#rig li:hover .rig-overlay {
+    opacity:0.8;
+}
+
+/* If have captions */
+.rig-text {
+    display:block;
+    padding:0 30px;
+    box-sizing:border-box;
+    position:absolute;
+    left:0;
+    width:100%;
+    text-align:center;
+    text-transform:capitalize;
+    font-size:18px;
+    font-weight:bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight:normal!important;
+    top:40%;
+    color:white;
+    opacity:0;
+    filter:alpha(opacity=0);/*For older IE*/
+    transform:translateY(-20px);
+    transition:all .3s;
+}
+#rig li:hover .rig-text {
+    transform:translateY(0px);
+    opacity:0.9;
+}
+
+@media (max-width: 9000px) {
+    #rig li {
+        width:25%;
+    }
+}
+
+@media (max-width: 700px) {
+    #rig li {
+        width:33.33%;
+    }
+}
+
+@media (max-width: 550px) {
+    #rig li {
+        width:50%;
+    }
+}
+</style>
+
+  <div class="container">
+    <div class="jumbotron">
+      
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buy <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#">Buy</a></li>
+              <li><a href="#">Rent</a></li>
+            </ul>
+          </div><!-- /btn-group -->
+          <input type="text" class="form-control" aria-label="...">
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+    </div>
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <ul id="rig">
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/1.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Lorem Ipsum Dolor</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/2.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Consectetur Adipiscing</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/3.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Vivamus ut Felis</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/4.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Curabitur tempus</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/5.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Sed et nunc luctus</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/6.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Suspendisse tellus</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/7.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">pellentesque odio</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/8.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Nam euismod</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/9.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Vestibulum ultricies</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/10.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">quis interdum sapien</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/11.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Maecenas vitae</span>
+                  </a>
+              </li>
+              <li>
+                  <a class="rig-cell" href="#">
+                      <img class="rig-img" src="img/12.jpg">
+                      <span class="rig-overlay"></span>
+                      <span class="rig-text">Proin Scelerisque</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+<<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
