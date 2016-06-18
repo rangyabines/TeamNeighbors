@@ -3,19 +3,111 @@
 <head>
   <title>WYBMN</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href="res/super-panel.css" rel="stylesheet" />
-  <script src="res/super-panel.js"></script>
 </head>
 <body>
 
 <style type="text/css">
   body{
-   background: url('assets/images/beach.jpg') no-repeat center center fixed;
+   background: url('assets/images/beach2.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    padding-top: 35%;
 }
+
+.dropdown.dropdown-lg .dropdown-menu {
+    margin-top: -1px;
+    padding: 6px 20px;
+    outline: 0;
+}
+.input-group-btn .btn-group {
+    display: flex !important;
+    outline: 0;
+}
+.btn-group .btn {
+    border-radius: 0;
+    margin-left: -1px;
+    outline: 0;
+}
+.btn-group .btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    outline: 0;
+}
+.btn-group .form-horizontal{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  outline: 0;
+}
+.form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+    outline: 0;
+}
+.form-group .form-control:last-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    outline: 0;
+}
+
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+        outline: 0;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+        outline: 0;
+    }
+}
+
+/*Modal*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*Grid*/
+
 #rig {
     max-width:900px;
     margin:0 auto; /*center aligned*/
@@ -66,7 +158,7 @@
     bottom: 0;
     right: 0;
     margin: auto;
-    background: #3DC0F1 url(img/link.png) no-repeat center 20%;
+    background: #3DC0F1 url(img/link.jpg) no-repeat center 20%;
     background-size:50px 50px;
     opacity:0;
     filter:alpha(opacity=0);/*For IE6 - IE8*/
@@ -119,134 +211,248 @@
         width:50%;
     }
 }
+
+/*Modal hide*/
+
+.modal-backdrop {
+   background-color: transparent;
+}
 </style>
-
-  <div class="container">
-    <div class="jumbotron">
-      
-    </div>
-  </div>
-
+  
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
+      <div class="col-md-12">
+        <div class="input-group" id="adv-search">
+          <input type="text" class="form-control" placeholder="Search" />
           <div class="input-group-btn">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Buy <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Buy</a></li>
-              <li><a href="#">Rent</a></li>
-            </ul>
-          </div><!-- /btn-group -->
-          <input type="text" class="form-control" aria-label="...">
-        </div><!-- /input-group -->
-      </div><!-- /.col-lg-6 -->
+              <div class="btn-group" role="group">
+                  <div class="dropdown">
+                      <button type="button" onclick="myFunction()" class="btn" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                      <div id="myDropdown" class="dropdown-menu" role="menu">
+                          <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                              <ul>
+                                  <li>Buy</li>
+                                  <li>Rent</li>
+                              </ul>
+                            </div>
+                          </form>
+                      </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" id="myBtn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          <ul id="rig">
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/1.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Lorem Ipsum Dolor</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/2.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Consectetur Adipiscing</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/3.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Vivamus ut Felis</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/4.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Curabitur tempus</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/5.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Sed et nunc luctus</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/6.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Suspendisse tellus</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/7.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">pellentesque odio</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/8.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Nam euismod</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/9.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Vestibulum ultricies</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/10.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">quis interdum sapien</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/11.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Maecenas vitae</span>
-                  </a>
-              </li>
-              <li>
-                  <a class="rig-cell" href="#">
-                      <img class="rig-img" src="img/12.jpg">
-                      <span class="rig-overlay"></span>
-                      <span class="rig-text">Proin Scelerisque</span>
-                  </a>
-              </li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+  <div class="container">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-<<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">x</span>
+        <!-- <p>Some text in the Modal..</p> -->
+        <!-- Grid -->
+        <ul id="rig">
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" src="assets/images/img1.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Lorem Ipsum Dolor</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" src="assets/images/img2.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Consectetur Adipiscing</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img3.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Vivamus ut Felis</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img4.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Curabitur tempus</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img5.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Sed et nunc luctus</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img6.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Suspendisse tellus</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img7.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">pellentesque odio</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img8.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Nam euismod</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img9.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Vestibulum ultricies</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img10.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">quis interdum sapien</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#meModal" data-toggle="modal">
+                  <img class="rig-img" id="myImg" src="assets/images/img11.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Maecenas vitae</span> -->
+              </a>
+          </li>
+          <li>
+              <a class="rig-cell" data-target="#stack2" data-toggle="modal" href="#stack2">
+                  <img class="rig-img" id="myImg" src="assets/images/img12.jpg">
+                  <span class="rig-overlay"></span>
+                  <!-- <span class="rig-text">Proin Scelerisque</span> -->
+              </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Second Modal -->
+  <div id="stack1" class="modal hide fade" tabindex="-1" data-focus-on="input:first">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Stack One</h3>
+    </div>
+    <div class="modal-body">
+      <p>One fine body…</p>
+      <p>One fine body…</p>
+      <p>One fine body…</p>
+      <input type="text" data-tabindex="1">
+      <input type="text" data-tabindex="2">
+      <button class="btn" data-toggle="modal" href="#stack2">Launch modal</button>
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn">Close</button>
+      <button type="button" class="btn btn-primary">Ok</button>
+    </div>
+  </div>
+   
+  <div id="stack2" class="modal hide fade" tabindex="-1" data-focus-on="input:first">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Stack Two</h3>
+    </div>
+    <div class="modal-body">
+      <p>One fine body…</p>
+      <p>One fine body…</p>
+      <input type="text" data-tabindex="1">
+      <input type="text" data-tabindex="2">
+      <button class="btn" data-toggle="modal" href="#stack3">Launch modal</button>
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn">Close</button>
+      <button type="button" class="btn btn-primary">Ok</button>
+    </div>
+  </div>
+   
+  <div id="stack3" class="modal hide fade" tabindex="-1" data-focus-on="input:first">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>Stack Three</h3>
+    </div>
+    <div class="modal-body">
+      <p>One fine body…</p>
+      <input type="text" data-tabindex="1">
+      <input type="text" data-tabindex="2">
+    </div>
+    <div class="modal-footer">
+      <button type="button" data-dismiss="modal" class="btn">Close</button>
+      <button type="button" class="btn btn-primary">Ok</button>
+    </div>
+  </div>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.btn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-menu");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+//Modal
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
 </body>
 </html>
